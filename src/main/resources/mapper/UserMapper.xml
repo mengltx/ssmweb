@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pose.webssm.dao.UserDao">
+    <resultMap type="com.pose.webssm.entity.User" id="userResultMap" >
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <insert id="addUser" parameterType="com.pose.webssm.entity.User">
+        INSERT INTO user(id,name) VALUE (#{id},#{name})
+    </insert>
+
+    <select id="findAll" resultMap="userResultMap">
+        select  * from user
+    </select>
+</mapper>
